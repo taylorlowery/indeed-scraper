@@ -1,0 +1,16 @@
+body{
+  background: black;
+  color: orange
+}
+#pageWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#searchWrapper{
+  width: 50%;
+  border: 1px solid orange;
+  border-radius: 10px;
+  padding: 50px;
+}
