@@ -4,7 +4,26 @@ const request = require('request');
 const cheerio = require('cheerio');
 const fs = require('fs');
 const app = express();
-var port = process.env.PORT || 1337;
+const port = process.env.PORT || 1337;
+
+var destination = fs.createWriteStream('./downloads/indeed.html')
+var url = "https://www.indeed.com/jobs?q=web+developer&l=Austin%2C+TX";
+request(url)
+  .pipe(destination)
+  .on('finish', function () {
+    console.log('HTML Saved!');
+  })
+  .on('error', function (err) {
+    console.log('Oh no! '+ err);
+  })
+
+request(url, function (err, res, body) {
+  if (err) {
+    console.log('All is lost! ' + err);
+  } else {
+    console.log(body);
+  }
+});
 
 
 app.get('/', function (req, res) {
