@@ -15,19 +15,10 @@ request(url)
   })
   .on('error', function (err) {
     console.log('Oh no! '+ err);
-  })
-
-request(url, function (err, res, body) {
-  if (err) {
-    console.log('All is lost! ' + err);
-  } else {
-    console.log(body);
-  }
-});
-
+  });
 
 app.get('/', function (req, res) {
-  res.send('Eyyy Lmao');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port, function (err) {
