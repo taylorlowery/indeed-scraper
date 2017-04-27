@@ -79,7 +79,7 @@ request(url, function (err, resp, body) {
     footerObj.link = $(this).attr('href');
     footer.links.push(footerObj);
   });
-  console.log(footer);
+  console.log(listings);
 }); //end of the request url function
 
 
