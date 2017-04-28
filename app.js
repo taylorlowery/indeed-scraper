@@ -9,6 +9,8 @@ const port = process.env.PORT || 1337;
 
 app.use('/', express.static(__dirname+ '/public'));
 
+app.set('view engine', 'ejs');
+
 //var url = "https://www.indeed.com/jobs?q=wordpress+developer&l=Austin%2C+TX";
 //initislize empty array of listings
 var listings = [];
@@ -22,11 +24,9 @@ var footer = {
   links: []
 }
 
-
-
 //serves the default search page
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.render("index");
 });
 
 //when something is searched for on the search page, gets the data from the POST
@@ -43,10 +43,10 @@ app.post('/test', urlencodedParser,  function (req, res) {
   stuff(url);
   //for testing, supposed to send the newly populated array to the screen
   //unfortunately it does this before the objects are populated
-  res.send(listings);
+  res.render('listings', {listings: listings});
 });
 
-function stuff(link, callback) {
+function stuff(link) {
   request(link, function (err, resp, body) {
     var $ = cheerio.load(body);
 
@@ -73,8 +73,6 @@ function stuff(link, callback) {
       //adds the listing to the listings array
       listings.push(listing);
     });
-    console.log(listings);
-
 
     //gets the info contained in the related links section at the bottom
     $('.related_searches_list').each(function () {
@@ -107,13 +105,9 @@ function stuff(link, callback) {
       footerObj.link = $(this).attr('href');
       footer.links.push(footerObj);
     });
-    //console.log(listings);
+
   }); //end of the request url function
 }
-
-
-
-
 
 //tells the app to listen and logs the port
 app.listen(port, function (err) {

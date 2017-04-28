@@ -1,6 +1,6 @@
 body{
-  background: black;
-  color: orange
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 #pageWrapper{
   display: flex;
@@ -10,7 +10,34 @@ body{
 }
 #searchWrapper{
   width: 50%;
-  border: 1px solid orange;
-  border-radius: 10px;
+  background-color: rgba(255,255,255,0.75);
   padding: 50px;
+  transition: all 500ms;
+}
+#searchWrapper:hover,
+#searchWrapper:active{
+  background-color: white;
+}
+searchWrapper h1{
+  margin-top: 0;
+}
+searchWrapper input[type="text"] {
+  padding: 10px 15px;
+}
+searchWrapper input[type="submit"]{
+
+}
+li{
+  color: black;
+  background-color: rgba(255,255,255, 0.5);
+  list-style-type: none;
+  padding: 20px;
+  margin: 20px auto;
+  transition: all 1s;
+  width: 50%;
+}
+li:hover{
+  background-color: white;
+    width: 55%;
+    padding: 35px;
 }
