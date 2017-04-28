@@ -40,17 +40,13 @@ app.post('/test', urlencodedParser,  function (req, res) {
   console.log(url);
   //actually requests the url and retreives the relevant data from it, assigning
   //it to the empty arrays and objects above
-  stuff(url, function(err, obj){
-    if(err){ return next(err) };
-    //res.myObj = obj;
-    //for testing, supposed to send the newly populated array to the screen
-    //unfortunately it does this before the objects are populated
-    res.render('listings', {listings: listings});
-  });
-
+  stuff(url);
+  //for testing, supposed to send the newly populated array to the screen
+  //unfortunately it does this before the objects are populated
+  res.render('listings', {listings: listings});
 });
 
-function stuff(link, callback) {
+function stuff(link) {
   request(link, function (err, resp, body) {
     var $ = cheerio.load(body);
 
@@ -109,7 +105,7 @@ function stuff(link, callback) {
       footerObj.link = $(this).attr('href');
       footer.links.push(footerObj);
     });
-callback();
+
   }); //end of the request url function
 }
 
