@@ -25,19 +25,25 @@ searchWrapper input[type="text"] {
   padding: 10px 15px;
 }
 searchWrapper input[type="submit"]{
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 0;
 
 }
 li{
   color: black;
   background-color: rgba(255,255,255, 0.5);
   list-style-type: none;
-  padding: 20px;
+  padding: 20px 40px;
   margin: 20px auto;
   transition: all 1s;
   width: 50%;
 }
 li:hover{
   background-color: white;
-    width: 55%;
-    padding: 35px;
+  padding: 35px 60px;
+}
+.jobCard{
+  color: black;
+  text-decoration: none;
 }

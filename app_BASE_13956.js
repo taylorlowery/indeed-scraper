@@ -9,8 +9,6 @@ const port = process.env.PORT || 1337;
 
 app.use('/', express.static(__dirname+ '/public'));
 
-var functions = require('./public/js/functions');
-
 app.set('view engine', 'ejs');
 
 //var url = "https://www.indeed.com/jobs?q=wordpress+developer&l=Austin%2C+TX";
@@ -37,25 +35,18 @@ app.post('/test', urlencodedParser,  function (req, res) {
   //logs the POST data just for testing
   console.log(req.body.job + ', ' + req.body.location);
   //creates an indeed search page url with the data recieved from the POST
-  //var url = "https://www.indeed.com/jobs?q="+ req.body.job + "&l=" + req.body.location;
-  
-  var url = functions.urlHandler(req.body);
-  
+  var url = "https://www.indeed.com/jobs?q="+ req.body.job + "&l=" + req.body.location;
   //logs the new URL just to see
   console.log(url);
   //actually requests the url and retreives the relevant data from it, assigning
   //it to the empty arrays and objects above
-  stuff(url, function(err, obj){
-    if(err){ return next(err) };
-    //res.myObj = obj;
-    //for testing, supposed to send the newly populated array to the screen
-    //unfortunately it does this before the objects are populated
-    res.render('listings', {listings: listings});
-  });
-
+  stuff(url);
+  //for testing, supposed to send the newly populated array to the screen
+  //unfortunately it does this before the objects are populated
+  res.render('listings', {listings: listings});
 });
 
-function stuff(link, callback) {
+function stuff(link) {
   request(link, function (err, resp, body) {
     var $ = cheerio.load(body);
 
@@ -114,7 +105,7 @@ function stuff(link, callback) {
       footerObj.link = $(this).attr('href');
       footer.links.push(footerObj);
     });
-    callback();
+
   }); //end of the request url function
 }
 

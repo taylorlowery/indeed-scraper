@@ -8,7 +8,13 @@
   </head>
   <body>
     <% for (var i = 0; i < listings.length; i++) { %>
-      <li><%= listings[i].jobTitle %></li>
+        <a href="<%= listings[i].jobLink %>">
+          <li>
+            <h1><%= listings[i].jobTitle %></h1>
+            <h3><%= listings[i].company %>, <%= listings[i].location %></h3>
+            <p><%= listings[i].summary %></p>
+          </li>
+        </a>
     <% } %>
   </body>
 </html>

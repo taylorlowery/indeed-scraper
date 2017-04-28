@@ -9,8 +9,6 @@ const port = process.env.PORT || 1337;
 
 app.use('/', express.static(__dirname+ '/public'));
 
-var functions = require('./public/js/functions');
-
 app.set('view engine', 'ejs');
 
 //var url = "https://www.indeed.com/jobs?q=wordpress+developer&l=Austin%2C+TX";
@@ -37,10 +35,7 @@ app.post('/test', urlencodedParser,  function (req, res) {
   //logs the POST data just for testing
   console.log(req.body.job + ', ' + req.body.location);
   //creates an indeed search page url with the data recieved from the POST
-  //var url = "https://www.indeed.com/jobs?q="+ req.body.job + "&l=" + req.body.location;
-  
-  var url = functions.urlHandler(req.body);
-  
+  var url = "https://www.indeed.com/jobs?q="+ req.body.job + "&l=" + req.body.location;
   //logs the new URL just to see
   console.log(url);
   //actually requests the url and retreives the relevant data from it, assigning
@@ -114,7 +109,7 @@ function stuff(link, callback) {
       footerObj.link = $(this).attr('href');
       footer.links.push(footerObj);
     });
-    callback();
+callback();
   }); //end of the request url function
 }
 
