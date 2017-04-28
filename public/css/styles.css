@@ -30,6 +30,10 @@ searchWrapper input[type="submit"]{
   border-radius: 0;
 
 }
+a.jobCard{
+  color: black;
+  text-decoration: none;
+}
 li{
   color: black;
   background-color: rgba(255,255,255, 0.5);
@@ -42,8 +46,5 @@ li{
 li:hover{
   background-color: white;
   padding: 35px 60px;
-}
-.jobCard{
-  color: black;
-  text-decoration: none;
+  box-shadow: 0px 10px 25px -15px magenta;
 }
