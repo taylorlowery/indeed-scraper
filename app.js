@@ -10,6 +10,8 @@ const port = process.env.PORT || 1337;
 app.use('/', express.static(__dirname+ '/public'));
 
 var functions = require('./public/js/functions');
+var stuff2 = require('./public/js/stuff');
+//var jobPage = require('./public/js/jobPage');
 
 app.set('view engine', 'ejs');
 
@@ -45,13 +47,14 @@ app.post('/test', urlencodedParser,  function (req, res) {
   console.log(url);
   //actually requests the url and retreives the relevant data from it, assigning
   //it to the empty arrays and objects above
-  stuff(url, function(err, obj){
-    if(err){ return next(err) };
-    //res.myObj = obj;
-    //for testing, supposed to send the newly populated array to the screen
-    //unfortunately it does this before the objects are populated
-    res.render('listings', {listings: listings});
-  });
+  //   stuff(url, function(err, obj){
+  //   if(err){ 
+  //     return next(err) 
+  //   };
+  //   res.render('listings', {listings: listings});
+  // });
+
+  console.log(stuff2.dataObj(url));
 
 });
 
@@ -79,6 +82,8 @@ function stuff(link, callback) {
       }
       //increments the id# of each listing. Might remove ids altogether
       id++;
+      functions.listingLinkCleanup(listing);
+      functions.listingSummaryCleanup(listing);
       //adds the listing to the listings array
       listings.push(listing);
     });

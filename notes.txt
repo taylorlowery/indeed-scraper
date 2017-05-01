@@ -1,0 +1,15 @@
+First idea was to make this app be multi-page--have different cards,
+and when you click a job listing card, it would take you to a page with that job's 
+description.
+
+Second idea: have it be a single-page application that starts with a search, and when you
+hit search it moves the searchbar to the top of the screen and populates the page below with 
+the job cards and  the other things scraped from the listings page, like a footer.
+
+The search would remain at the top so they could re-do their search if they want.
+
+The job cards, when clicked, would expand to show the description of that job, unless
+it turned out the link was to a listing on a different site, in which case it would just 
+redirect the user to that site. 
+
+(I need to test this with a link that I know goes to an external site)

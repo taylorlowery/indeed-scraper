@@ -1,6 +1,7 @@
 body{
   background: url(../img/bg.jpg) no-repeat center center fixed;
   background-size: cover;
+  margin: 0;
 }
 #pageWrapper{
   display: flex;
@@ -17,19 +18,74 @@ body{
 #searchWrapper:hover,
 #searchWrapper:active{
   background-color: white;
+  box-shadow: 0px 5px 25px -10px magenta;
 }
-searchWrapper h1{
+#searchWrapper h1{
   margin-top: 0;
 }
-searchWrapper input[type="text"] {
-  padding: 10px 15px;
+#searchWrapper form {
+  display: flex;
 }
-searchWrapper input[type="submit"]{
+#searchWrapper input[type="text"] {
+  padding: 10px 15px;
+  width: 100%;
+  transition: all 0.35ms;
+}
+#searchWrapper input[type="submit"]{
   padding: 10px 15px;
   border: 1px solid black;
   border-radius: 0;
-
+  cursor: pointer;
 }
+#searchWrapper input:focus {
+  outline: none;
+}
+#searchWrapper input[type="text"]:focus {
+  border: none;
+  box-shadow: 0px 0px 5px 0px magenta inset;
+  
+}
+
+/*Placehold Stuff.. why didn't I use SCSS??*/
+
+#searchWrapper::-webkit-input-placeholder{
+  -webkit-transition: opacity 0.35s ease-in-out;
+  transition: opactity 0.35s ease-in-out;
+}
+#searchWrapper:-moz-placeholder {
+  -moz-transition: opactity 0.35s ease-in-out;
+  transition: opactity 0.35s ease-in-out;
+}
+#searchWrapper::-moz-placeholder {
+  -moz-transition: opactity 0.35s ease-in-out;
+  transition: opactity 0.35s ease-in-out;
+}
+#searchWrapper:-ms-input-placeholder {
+  -ms-transition: opactity 0.35s ease-in-out;
+  transition: opactity 0.35s ease-in-out;
+}
+:focus::placeholder{
+  opacity: 0;
+  transition: opactity 0.35s ease-in-out;
+}
+:focus::-webkit-input-placeholder{
+  opacity: 0;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  transition: opactity 0.35s ease-in-out;
+}
+#searchWrapper:focus::-moz-input-placeholder{
+  opacity: 0;
+  -moz-transition: opacity 0.35s ease-in-out;
+  transition: opactity 0.35s ease-in-out;
+}
+#searchWrapper:focus::-ms-input-placeholder{
+  opacity: 0;
+  -ms-transition: opacity 0.35s ease-in-out;
+  transition: opactity 0.35s ease-in-out;
+}
+
+
+
 a.jobCard{
   color: black;
   text-decoration: none;
