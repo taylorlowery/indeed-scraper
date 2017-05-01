@@ -4,7 +4,7 @@ var jobPage = require('./jobPage');
 var bodyParser = require('body-parser');
 var functions = require('./functions');
 module.exports = {
-    dataObj : function(link) {
+    dataObj : function(link, callback) {
         request(link, function (err, resp, body) {
         var $ = cheerio.load(body);
 
@@ -77,7 +77,7 @@ module.exports = {
         footerObj.link = $(this).attr('href');
         footer.links.push(footerObj);
         });
-        return listings;
+        if (callback) callback();
     }); //end of the request url function
     
     }

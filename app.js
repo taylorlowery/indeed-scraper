@@ -47,15 +47,12 @@ app.post('/test', urlencodedParser,  function (req, res) {
   console.log(url);
   //actually requests the url and retreives the relevant data from it, assigning
   //it to the empty arrays and objects above
-  //   stuff(url, function(err, obj){
-  //   if(err){ 
-  //     return next(err) 
-  //   };
-  //   res.render('listings', {listings: listings});
-  // });
-
-  console.log(stuff2.dataObj(url));
-
+    stuff2.dataObj(url, function(err, obj){
+    if(err){ 
+      return next(err) 
+    };
+    res.render('listings', {listings: listings});
+  });
 });
 
 function stuff(link, callback) {
