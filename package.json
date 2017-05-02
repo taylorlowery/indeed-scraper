@@ -4,7 +4,7 @@
   "description": "A simple scraper and reskin of indeed.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Taylor Lowery",
   "license": "ISC",
