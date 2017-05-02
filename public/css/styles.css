@@ -104,3 +104,15 @@ li:hover{
   padding: 35px 60px;
   box-shadow: 0px 10px 25px -15px magenta;
 }
+
+/* ##################################################################### */
+/*                           Mah-Mah-Mah-Media Queries                   */
+/* ##################################################################### */
+
+@media screen and (max-width:415px) {
+  #searchWrapper,
+  .jobcard,
+  li {
+    width: 100%;
+  }
+}
