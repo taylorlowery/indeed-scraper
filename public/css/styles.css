@@ -30,12 +30,14 @@ body{
   padding: 10px 15px;
   width: 100%;
   transition: all 0.35ms;
+  box-sizing: border-box;
 }
 #searchWrapper input[type="submit"]{
   padding: 10px 15px;
   border: 1px solid black;
   border-radius: 0;
   cursor: pointer;
+  width: 100%;
 }
 #searchWrapper input:focus {
   outline: none;
@@ -109,10 +111,18 @@ li:hover{
 /*                           Mah-Mah-Mah-Media Queries                   */
 /* ##################################################################### */
 
-@media screen and (max-width:415px) {
-  #searchWrapper,
-  .jobcard,
-  li {
-    width: 100%;
+@media screen and (max-width:500px) {
+  #pageWrapper>#searchWrapper{
+    width: 80%;
+  }
+  #searchWrapper form{
+    flex-direction: column;
+  }
+  #searchWrapper input[type="text"]{
+    margin-bottom: 5px;
+  }
+  #jobList .jobcard,
+  #jobList>li {
+    width: 80%;
   }
 }

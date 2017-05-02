@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    
     <title>Indeed Listings</title>
 
   </head>
   <body>
-    <% for (var i = 0; i < listings.length; i++) { %>
+    <div id="jobList">
+      <% for (var i = 0; i < listings.length; i++) { %>
         <li>
           <a class="jobCard" href="<%= listings[i].jobLink %>">
             <h1><%= listings[i].jobTitle %></h1>
@@ -16,5 +20,6 @@
           </a>
         </li>
     <% } %>
+    </div>
   </body>
 </html>

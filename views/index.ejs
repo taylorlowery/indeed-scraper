@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Indeed Scraper</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script src="/js/frontend.js"></script>
   </head>
   <body>
     <div id="pageWrapper">
@@ -12,7 +13,7 @@
         <form method = "post" action="/test">
           <input name="job" type="text" id="searchTitle" placeholder="Job Title"></input>
           <input name = "location" type="text" id="searchLocation" placeholder="Location"></input>
-          <input id="seachButton" type="Submit" value="Search"></input>
+          <input id="seachButton" type="Submit" value="Search" onclick="empty()"></input>
         </form>
       </div>
     </div>
