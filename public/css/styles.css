@@ -34,10 +34,15 @@ body{
 }
 #searchWrapper input[type="submit"]{
   padding: 10px 15px;
-  border: 1px solid black;
+  color: white;
+  background-color: lightseagreen;
+  border: none;
   border-radius: 0;
   cursor: pointer;
   width: 100%;
+}
+#searchWrapper input[type="submit"]:hover{
+  background-color: seagreen;
 }
 #searchWrapper input:focus {
   outline: none;
@@ -111,7 +116,7 @@ li:hover{
 /*                           Mah-Mah-Mah-Media Queries                   */
 /* ##################################################################### */
 
-@media screen and (max-width:500px) {
+@media (max-width:415px) {
   #pageWrapper>#searchWrapper{
     width: 80%;
   }
