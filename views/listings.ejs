@@ -22,20 +22,18 @@
         </form>
       </div>
       <div id="jobList">
-        <% if (listings.length > 0) { %>
-          <% for (var i = 0; i < listings.length; i++) { %>
+        <% if (listings.listings.length > 0) { %>
+          <% for (var i = 0; i < listings.listings.length; i++) { %>
             <li class="jobCard">
-              <a href="<%= listings[i].jobLink %>">
-                <h1><%= listings[i].jobTitle %></h1>
-                <h3><%= listings[i].company %>, <%= listings[i].location %></h3>
-                <p><%= listings[i].summary %></p>
+              <a href="<%= listings.listings[i].jobLink %>">
+                <h1><%= listings.listings[i].jobTitle %></h1>
+                <h3><%= listings.listings[i].company %>, <%= listings.listings[i].location %></h3>
+                <p><%= listings.listings[i].summary %></p>
               </a>
               <div id="fullListing">
-                <% if (listings[i].jobListing) { %>
-                <%= listings[i].jobListing %>
-                <% } else  { %>
-                <h1>HEY</h1>
-                <% } %> 
+                <% if (listings.listings[i].jobListing.length > 0) { %>
+                <%= listings.listings[i].jobListing %>
+                <% } %>
               </div>
             </li>
           <% } %>
@@ -46,5 +44,21 @@
         <% } %> 
       </div>
     </div>
+    <footer>
+      <div class="footerContents">
+        <% if (listings.footer) { %>
+          <p><%= listings.footer.title %> <a href="<%= listings.footer.links[0].link %>"><%= listings.footer.links[0].text %></a></p>
+          <ul>
+            <% for (var i = 1; i < listings.footer.links.length; i++) { %>
+              <li>
+                <a href="https://www.indeed.com<%= listings.footer.links[i].link %>"><%= listings.footer.links[i].text %></a>
+              </li>
+            <% } %>
+          </ul>
+          <% } else { %>
+          <p>What's up dude</p>
+        <% } %>
+      </div> 
+    </footer>
   </body>
 </html>

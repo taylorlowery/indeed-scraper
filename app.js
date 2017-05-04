@@ -35,6 +35,7 @@ app.post('/test', urlencodedParser,  function (req, res) {
     };
     //sends the data to the screeeeeeeeen
     res.render('listings', {listings: obj});
+    //console.log(obj);
   });
 });
 
