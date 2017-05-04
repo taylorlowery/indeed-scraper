@@ -22,22 +22,28 @@
         </form>
       </div>
       <div id="jobList">
-        <% for (var i = 0; i < listings.length; i++) { %>
-          <li class="jobCard">
-            <a href="<%= listings[i].jobLink %>">
-              <h1><%= listings[i].jobTitle %></h1>
-              <h3><%= listings[i].company %>, <%= listings[i].location %></h3>
-              <p><%= listings[i].summary %></p>
-            </a>
-            <div id="fullListing">
-              <% if (listings[i].jobListing) { %>
-              <%= listings[i].jobListing %>
-              <% } else  { %>
-              <h1>HEY</h1>
-              <% } %> 
-            </div>
-          </li>
-        <% } %>
+        <% if (listings.length > 0) { %>
+          <% for (var i = 0; i < listings.length; i++) { %>
+            <li class="jobCard">
+              <a href="<%= listings[i].jobLink %>">
+                <h1><%= listings[i].jobTitle %></h1>
+                <h3><%= listings[i].company %>, <%= listings[i].location %></h3>
+                <p><%= listings[i].summary %></p>
+              </a>
+              <div id="fullListing">
+                <% if (listings[i].jobListing) { %>
+                <%= listings[i].jobListing %>
+                <% } else  { %>
+                <h1>HEY</h1>
+                <% } %> 
+              </div>
+            </li>
+          <% } %>
+        <% }  else { %>
+        <div class="jobCard">
+          <h1>Nothing came up on that search! Please try again.</h1>
+        </div>
+        <% } %> 
       </div>
     </div>
   </body>

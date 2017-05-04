@@ -135,6 +135,9 @@ h1, h2, h3, h4, h5, h6{
   #searchWrapper input[type="text"]{
     margin-bottom: 5px;
   }
+  #searchWrapper input[type="submit"]{
+    width: 100%;
+  }
   #jobList .jobcard{
     width: 80%;
   }
