@@ -17,15 +17,6 @@ app.set('view engine', 'ejs');
 
 //initislize empty array of listings
 var listings = [];
-//initialize ID numbers for listings
-var id = 01;
-//initialize empty array for related searches links
-var relatedLinks = [];
-//footer information
-var footer = {
-  title: '',
-  links: []
-}
 
 //serves the default search page
 app.get('/', function (req, res) {
@@ -35,13 +26,7 @@ app.get('/', function (req, res) {
 //when something is searched for on the search page, gets the data from the POST
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 app.post('/test', urlencodedParser,  function (req, res) {
-  //logs the POST data just for testing
-  console.log(req.body.job + ', ' + req.body.location);
-  
   var url = functions.urlHandler(req.body);
- 
-  //logs the new URL just to see
-  console.log(url);
   //actually requests the url and retreives the relevant data from it, assigning
   //it to the empty arrays and objects above
     stuff2.dataObj(url, function(err, obj){

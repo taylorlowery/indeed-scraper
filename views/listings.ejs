@@ -5,21 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+    <script src="/js/listings.js"></script>
     <title>Indeed Listings</title>
-
   </head>
   <body>
-    <div id="jobList">
-      <% for (var i = 0; i < listings.length; i++) { %>
-        <li>
-          <a class="jobCard" href="<%= listings[i].jobLink %>">
-            <h1><%= listings[i].jobTitle %></h1>
-            <h3><%= listings[i].company %>, <%= listings[i].location %></h3>
-            <p><%= listings[i].summary %></p>
-          </a>
-        </li>
-    <% } %>
+    <div class="pageWrapper"> 
+      <div id="searchWrapper">
+        <form method = "post" action="/test">
+          <input name="job" type="text" id="searchTitle" placeholder="Job Title"></input>
+          <input name = "location" type="text" id="searchLocation" placeholder="Location"></input>
+          <input id="seachButton" type="Submit" value="Search" onclick="empty()"></input>
+        </form>
+      </div>
+      <div id="jobList">
+        <% for (var i = 0; i < listings.length; i++) { %>
+          <li class="jobCard">
+            <a href="<%= listings[i].jobLink %>">
+              <h1><%= listings[i].jobTitle %></h1>
+              <h3><%= listings[i].company %>, <%= listings[i].location %></h3>
+              <p><%= listings[i].summary %></p>
+            </a>
+            <div id="fullListing">
+              <% if (listings[i].jobListing) { %>
+              <%= listings[i].jobListing %>
+              <% } else  { %>
+              <h1>HEY</h1>
+              <% } %> 
+            </div>
+          </li>
+        <% } %>
+      </div>
     </div>
   </body>
 </html>
