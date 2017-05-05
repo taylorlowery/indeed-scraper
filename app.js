@@ -39,6 +39,18 @@ app.post('/test', urlencodedParser,  function (req, res) {
   });
 });
 
+app.get('/:jobTitle/:location', urlencodedParser, function(req, res) {
+  var url = "https://www.indeed.com/jobs?q="+ req.params.jobTitle + "&l=" + req.params.location;
+  stuff2.dataObj(url, function(err, obj){
+    if(err){ 
+      return next(err) 
+    };
+    //sends the data to the screeeeeeeeen
+    res.render('listings', {listings: obj});
+    //console.log(obj);
+  });
+});
+
 //tells the app to listen and logs the port
 app.listen(port, function (err) {
   if (err) {

@@ -8,6 +8,9 @@ body{
 h1, h2, h3, h4, h5, h6{
   font-weight: 400;
 }
+.brand{
+  text-align: center
+}
 .pageWrapper{
   display: flex;
   flex-direction: column;
@@ -17,8 +20,8 @@ h1, h2, h3, h4, h5, h6{
 }
 #searchWrapper{
   width: 55%;
-  /*background-color: rgba(255,255,255,0.75);
-  padding: 50px;*/
+  /*background-color: rgba(255,255,255,0.75);*/
+  padding: 20px;
   transition: all 500ms;
 }
 
