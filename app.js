@@ -10,12 +10,11 @@ const port = process.env.PORT || 1337;
 app.use('/', express.static(__dirname+ '/public'));
 
 var functions = require('./lib/functions');
-var stuff2 = require('./lib/stuff');
-//var jobPage = require('./public/js/jobPage');
+var search = require('./lib/search');
 
 app.set('view engine', 'ejs');
 
-//initislize empty array of listings
+//initialize empty array of listings
 var listings = [];
 
 //serves the default search page
@@ -25,29 +24,29 @@ app.get('/', function (req, res) {
 
 //when something is searched for on the search page, gets the data from the POST
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
-app.post('/test', urlencodedParser,  function (req, res) {
+app.post('/listings', urlencodedParser,  function (req, res) {
   var url = functions.urlHandler(req.body);
   //actually requests the url and retreives the relevant data from it, assigning
   //it to the empty arrays and objects above
-    stuff2.dataObj(url, function(err, obj){
+    search.dataObj(url, function(err, obj){
     if(err){ 
       return next(err) 
     };
     //sends the data to the screeeeeeeeen
     res.render('listings', {listings: obj});
-    //console.log(obj);
   });
 });
 
+//this get request is functionally similar to the POST above, but allows parameters to 
+//be placed directly in the URL, which makes for faster testing
 app.get('/:jobTitle/:location', urlencodedParser, function(req, res) {
   var url = "https://www.indeed.com/jobs?q="+ req.params.jobTitle + "&l=" + req.params.location;
-  stuff2.dataObj(url, function(err, obj){
+  search.dataObj(url, function(err, obj){
     if(err){ 
       return next(err) 
     };
     //sends the data to the screeeeeeeeen
     res.render('listings', {listings: obj});
-    //console.log(obj);
   });
 });
 

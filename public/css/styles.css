@@ -18,37 +18,43 @@ h1, h2, h3, h4, h5, h6{
   justify-content: center;
   min-height: 100vh;
 }
-#searchWrapper{
+.searchWrapper{
   width: 55%;
   /*background-color: rgba(255,255,255,0.75);*/
   padding: 20px;
   transition: all 500ms;
 }
+.searchWrapper2{
+  width: 55%;
+  /*background-color: rgba(255,255,255,0.75);*/
+  padding: 20px 0px;
+  transition: all 500ms;
+}
 
-#searchWrapper:hover,
-#searchWrapper:active{
+.searchWrapper:hover,
+.searchWrapper:active{
   /*background-color: white;
   box-shadow: 0px 5px 25px -10px lightseagreen;
   padding: 60px;*/
 }
-#searchWrapper h1{
+.searchWrapper h1{
   margin-top: 0;
 }
-#searchWrapper form {
+.searchWrapper form {
   display: flex;
 }
-#searchWrapper input{
+.searchWrapper input{
   font-size: 20px;
   height: 50px;
 }
-#searchWrapper input[type="text"] {
+.searchWrapper input[type="text"] {
   padding: 10px 15px;
   width: 100%;
   transition: all 0.35ms;
   box-sizing: border-box;
   
 }
-#searchWrapper input[type="submit"]{
+.searchWrapper input[type="submit"]{
   padding: 10px 15px;
   color: white;
   background-color: lightseagreen;
@@ -57,17 +63,16 @@ h1, h2, h3, h4, h5, h6{
   cursor: pointer;
   width: 25%;
 }
-#searchWrapper input[type="submit"]:hover{
+.searchWrapper input[type="submit"]:hover{
   background-color: seagreen;
 }
-#searchWrapper input:focus {
+.searchWrapper input:focus {
   outline: none;
 }
-#searchWrapper input[type="text"]:focus,
-#searchWrapper input[type="text"]:hover {
+.searchWrapper input[type="text"]:focus,
+.searchWrapper input[type="text"]:hover {
   border: none;
   box-shadow: 0px 0px 5px 0px lightseagreen inset;
-
 }
 ::selection{
   background-color: lightseagreen;
@@ -77,28 +82,39 @@ h1, h2, h3, h4, h5, h6{
   background-color: lightseagreen !important;
   color: white;
 }
+#gitLink1{
+  text-align: center;
+  color: white;
+  margin-top: 0;
+}
+#gitLink1 a{
+  color: lightseagreen;
+}
+#gitLink1 a:visited{
+  color: seagreen;
+}
 
 /*Placehold Stuff.. why didn't I use SCSS??*/
 
-#searchWrapper::placeholder {
+.searchWrapper::placeholder {
   transition: opactity 0.35s ease-in-out;
   font-size: 16px;
 }
 
 
-#searchWrapper::-webkit-input-placeholder{
+.searchWrapper::-webkit-input-placeholder{
   -webkit-transition: opacity 0.35s ease-in-out;
   transition: opactity 0.35s ease-in-out;
 }
-#searchWrapper:-moz-placeholder {
+.searchWrapper:-moz-placeholder {
   -moz-transition: opactity 0.35s ease-in-out;
   transition: opactity 0.35s ease-in-out;
 }
-#searchWrapper::-moz-placeholder {
+.searchWrapper::-moz-placeholder {
   -moz-transition: opactity 0.35s ease-in-out;
   transition: opactity 0.35s ease-in-out;
 }
-#searchWrapper:-ms-input-placeholder {
+.searchWrapper:-ms-input-placeholder {
   -ms-transition: opactity 0.35s ease-in-out;
   transition: opactity 0.35s ease-in-out;
 }
@@ -111,12 +127,12 @@ h1, h2, h3, h4, h5, h6{
   -webkit-transition: opacity 0.35s ease-in-out;
   transition: opactity 0.35s ease-in-out;
 }
-#searchWrapper:focus::-moz-input-placeholder{
+.searchWrapper:focus::-moz-input-placeholder{
   opacity: 0;
   -moz-transition: opacity 0.35s ease-in-out;
   transition: opactity 0.35s ease-in-out;
 }
-#searchWrapper:focus::-ms-input-placeholder{
+.searchWrapper:focus::-ms-input-placeholder{
   opacity: 0;
   -ms-transition: opacity 0.35s ease-in-out;
   transition: opactity 0.35s ease-in-out;
@@ -140,7 +156,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .jobCard:hover{
   background-color: white;
-  padding: 35px 60px;
+  padding: 25px 50px;
   box-shadow: 0px 10px 25px -15px lightseagreen;
 }
 
@@ -187,19 +203,29 @@ footer a:hover{
 /* ##################################################################### */
 
 @media (max-width:415px) {
-  #pageWrapper>#searchWrapper{
+  .pageWrapper{
+    padding-top: 20px;
+  }
+  .pageWrapper>.searchWrapper{
     width: 80%;
   }
-  #searchWrapper form{
+  .searchWrapper form{
     flex-direction: column;
   }
-  #searchWrapper input[type="text"]{
+  .searchWrapper input[type="text"]{
     margin-bottom: 5px;
   }
-  #searchWrapper input[type="submit"]{
+  .searchWrapper input[type="submit"]{
     width: 100%;
   }
-  #jobList .jobcard{
-    width: 80%;
+  .pageWrapper #jobList>.jobCard{
+    width: 60%;
+  }
+  .jobCard h1{
+    font-size: 1.6em;
+  }
+  .jobCard h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }

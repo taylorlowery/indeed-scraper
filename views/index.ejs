@@ -13,15 +13,13 @@
 </head>
   <body>
     <div class="pageWrapper">
-      <div class = "brand" >
-        <h1>Indeed</h1>
-      </div>
-      <div id="searchWrapper">
-        <form method = "post" action="/test">
-          <input name="job" type="text" id="searchTitle" placeholder="Job Title"></input>
-          <input name = "location" type="text" id="searchLocation" placeholder="Location"></input>
+      <div class="searchWrapper">
+        <form method ="post" action="/listings">
+          <input name ="job" type="text" id="searchTitle" placeholder="Job Title"></input>
+          <input name ="location" type="text" id="searchLocation" placeholder="Location"></input>
           <input id="seachButton" type="Submit" value="Search" onclick="empty()"></input>
         </form>
+        <p id="gitLink1" >The code for this project can be viewed on <a href="https://github.com/admiraltaylor/indeed-scraper">GitHub</a></p>
       </div>
     </div>
   </body>

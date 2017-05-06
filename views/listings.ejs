@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="pageWrapper">
-      <div id="searchWrapper">
+      <div class=" searchWrapper searchWrapper2">
         <form method = "post" action="/test">
           <input name="job" type="text" id="searchTitle" placeholder="Job Title"></input>
           <input name = "location" type="text" id="searchLocation" placeholder="Location"></input>
@@ -27,13 +27,12 @@
             <li class="jobCard">
               <a href="<%= listings.listings[i].jobLink %>">
                 <h1><%= listings.listings[i].jobTitle %></h1>
-                <h3><%= listings.listings[i].company %>, <%= listings.listings[i].location %></h3>
+                <h3><%= listings.listings[i].company %></h3>
+                <h3><%= listings.listings[i].location %></h3>
                 <p><%= listings.listings[i].summary %></p>
               </a>
               <div id="fullListing">
                 
-                <p><%= listings.listings[i].jobListing %></p>
-                <h1>Test</h1>
               </div>
             </li>
           <% } %>
