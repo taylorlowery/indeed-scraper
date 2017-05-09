@@ -13,7 +13,7 @@
     <title>Indeed Listings</title>
   </head>
   <body>
-    <div class="pageWrapper">
+    <div class="pageWrapper top-align">
       <div class=" searchWrapper searchWrapper2">
         <form method = "post" action="/test">
           <input name="job" type="text" id="searchTitle" placeholder="Job Title"></input>
@@ -46,13 +46,16 @@
     <footer>
       <div class="footerContents">
         <% if (listings.footer) { %>
-          <p><%= listings.footer.title %> <a href="<%= listings.footer.links[0].link %>"><%= listings.footer.links[0].text %></a></p>
+          <p><%= listings.footer.title %> <a href="http://www.indeed.com<%= listings.footer.links[0].link %>"><%= listings.footer.links[0].text %></a></p>
           <ul>
             <% for (var i = 1; i < listings.footer.links.length; i++) { %>
               <li>
                 <a href="https://www.indeed.com<%= listings.footer.links[i].link %>"><%= listings.footer.links[i].text %></a>
               </li>
             <% } %>
+              <li>
+                <a href="https://github.com/admiraltaylor/indeed-scraper">GitHub</a>
+              </li>
           </ul>
           <% } else { %>
           <p>What's up dude</p>

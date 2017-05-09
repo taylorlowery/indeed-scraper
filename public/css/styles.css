@@ -147,8 +147,9 @@ h1, h2, h3, h4, h5, h6{
   list-style-type: none;
   padding: 20px 40px;
   margin: 20px auto;
-  transition: all 1s;
   width: 50%;
+  display: none;
+  opacity: 0;
 }
 .jobCard a{
   color: black;
@@ -192,10 +193,14 @@ footer li {
 }
 footer a{
   text-decoration: none;
-  color: black;
+  color: seagreen;
 }
 footer a:hover{
-  color: seagreen;
+  color: lightseagreen;
+}
+
+.top-align{
+  justify-content: flex-start;
 }
 
 /* ##################################################################### */
@@ -227,5 +232,8 @@ footer a:hover{
   .jobCard h3{
     margin-top: 5px;
     margin-bottom: 5px;
+  }
+  footer a {
+    display: block;
   }
 }
