@@ -90,6 +90,17 @@ h1, h2, h3, h4, h5, h6{
   background-color: lightseagreen !important;
   color: white;
 }
+
+#searchTitle {
+  width:100%;
+}
+#searchLocation {
+  width: 76%;
+}
+#searchButton {
+  width: 20%;
+}
+
 #gitLink1{
   text-align: center;
   color: white;
